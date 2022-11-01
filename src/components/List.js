@@ -1,9 +1,9 @@
-import { Container, ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 import Item from "./Item";
 
 function List({ items, checkHandler, deleteHandler }) {
   return (
-    <Container className="p-4">
+    <Col lg={6} xs={9}>
       <ListGroup as="ul">
         {items.map((item) => {
           return (
@@ -16,7 +16,7 @@ function List({ items, checkHandler, deleteHandler }) {
           );
         })}
       </ListGroup>
-    </Container>
+    </Col>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
-import { BsPlusCircle } from "react-icons/bs";
+import { BsPlusSquare } from "react-icons/bs";
 
 function AddItem({ newItem, setNewItem, submitHandler }) {
   const inputRef = useRef();
@@ -27,7 +27,7 @@ function AddItem({ newItem, setNewItem, submitHandler }) {
             inputRef.current.focus();
           }}
         >
-          <BsPlusCircle style={{ marginBottom: "0.25em" }} />
+          <BsPlusSquare style={{ marginBottom: "0.25em" }} />
         </Button>
       </InputGroup>
     </Form>
