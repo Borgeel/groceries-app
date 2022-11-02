@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import apiRequest from "./apiRequest";
 import AddItem from "./components/AddItem";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
@@ -35,25 +36,55 @@ function App() {
   }, []);
 
   // Add Item
-  const addItem = (item) => {
+  const addItem = async (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const myNewItem = { id, checked: false, item };
     const listItems = [...items, myNewItem];
     setItems(listItems);
+
+    const postOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json ",
+      },
+      body: JSON.stringify(myNewItem),
+    };
+
+    const result = await apiRequest(URL, postOptions);
+    if (result) setIsLoading(result);
   };
 
   // Check Item
-  const checkHandler = (id) => {
+  const checkHandler = async (id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);
+
+    const theItem = listItems.filter((item) => item.id === id);
+    const updateOptions = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ checked: theItem[0].checked }),
+    };
+
+    const reqUrl = `${URL}/${id}`;
+    const result = await apiRequest(reqUrl, updateOptions);
+    if (result) setFetchError(result);
   };
 
   // Delete Item
-  const deleteHandler = (id) => {
+  const deleteHandler = async (id) => {
     const listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
+
+    const deleteOptions = { method: "DELETE" };
+
+    const reqUrl = `${URL}/${id}`;
+    const result = await apiRequest(reqUrl, deleteOptions);
+    if (result) setFetchError(result);
   };
 
   // Submit Handler

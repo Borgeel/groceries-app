@@ -8,6 +8,7 @@ function Item({ item, checkHandler, deleteHandler }) {
       variant="secondary"
       as="li"
       className="d-inline-flex"
+      onDoubleClick={() => checkHandler(item.id)}
     >
       <Form.Check
         type="checkbox"
@@ -15,7 +16,10 @@ function Item({ item, checkHandler, deleteHandler }) {
         value={item.checked}
         onChange={() => checkHandler(item.id)}
       />
-      <span className="mx-3" onDoubleClick={() => checkHandler(item.id)}>
+      <span
+        className="mx-3"
+        style={item.checked ? { textDecoration: "line-through" } : null}
+      >
         {item.item}
       </span>
       <BsFillTrashFill

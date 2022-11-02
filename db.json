@@ -9,6 +9,11 @@
       "id": 2,
       "item": "Cookies",
       "checked": false
+    },
+    {
+      "id": 3,
+      "checked": false,
+      "item": "Pojubi Zanu"
     }
   ]
 }
