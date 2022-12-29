@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import List from "./List";
+import { List } from "./List";
 
 function Content({ items, setItems, checkHandler, deleteHandler, error }) {
   return (

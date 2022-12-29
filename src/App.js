@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import apiRequest from "./apiRequest";
-import AddItem from "./components/AddItem";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Search from "./components/Search";
+
+import { AddItem, Content, Footer, Header, Search } from "./components";
 
 function App() {
   const URL = "http://localhost:4000/items";
