@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
-import { List } from "./List";
+import List from "./List";
 
-function Content({ items, setItems, checkHandler, deleteHandler, error }) {
+function Content({ items, setItems, checkHandler, deleteHandler }) {
   return (
     <Container className="d-flex p-3 mt-4 justify-content-center">
       {items.length ? (

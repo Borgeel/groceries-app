@@ -13,7 +13,17 @@
     {
       "id": 3,
       "checked": false,
-      "item": "Pojubi Zanu"
+      "item": "2 packs of rice"
+    },
+    {
+      "id": 4,
+      "checked": false,
+      "item": "Toilet paper"
+    },
+    {
+      "id": 5,
+      "checked": false,
+      "item": "Coke 2l"
     }
   ]
 }
